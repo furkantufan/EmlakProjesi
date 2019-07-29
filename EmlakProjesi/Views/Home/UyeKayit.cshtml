@@ -1,0 +1,214 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ÜYE KAYDI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/login_css/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/login_css/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/login_css/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    <div class="limiter">
+        @RenderBody()
+        <div class="container-login100" style="background-image: url('/login_css/images/bg-01.jpg');">
+            <div class="wrap-login100">
+                @using (@Html.BeginForm("UyeKayitAction", "Login", FormMethod.Post, new { @class = "login100-form validate-form" }))
+                {
+                    @model EmlakProjesi.ModelView.UyeKayitModel
+                    <span class="login100-form-logo">
+                        <i class="zmdi zmdi-landscape"></i>
+                    </span>
+
+                    <span class="login100-form-title p-b-34 p-t-27">ÜYE KAYDI</span>
+
+                    <table>
+                        <tr>
+                            <td style="padding-right:5px;">
+                                <div class="wrap-input100 validate-input" data-validate="Kullanıcı Adı Giriniz">
+                                    @Html.TextBoxFor(model => model.Kullanici.KULLANICI_ADI, new { placeholder = "KULLANICI ADI", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                            <td style="padding-left:5px;">
+                                <div class="wrap-input100 validate-input" data-validate="Kullanıcı Soyadı Giriniz">
+                                    @Html.TextBoxFor(uye => uye.Kullanici.SIFRE, new { placeholder = "ŞİFRE", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td style="padding-right:5px;">
+                                <div class="wrap-input100 validate-input" data-validate="Kullanıcı Adı Giriniz">
+                                    @Html.TextBoxFor(uye => uye.BireyselUye.AD, new { placeholder = "AD", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                            <td style="padding-left:5px;">
+                                <div class="wrap-input100 validate-input" data-validate="Kullanıcı Soyadı Giriniz">
+                                    @Html.TextBoxFor(uye => uye.BireyselUye.SOYAD, new { placeholder = "SOYAD", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td style="padding-right:5px;">
+                                <div class="wrap-input100 validate-input">
+                                    @Html.DropDownListFor(uye => uye.BireyselUye.CINSIYET, EmlakProjesi.ModelView.UyeKayitModel.GetCinsiyetler(), new { placeholder = "CİNSİYET", @class = "form-control" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                            <td style="padding-left:5px;">
+                                <div class="wrap-input100 validate-input">
+                                    @Html.TextBoxFor(uye => uye.BireyselUye.TEL_NO, new { placeholder = "TELEFON", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td style="padding-right:5px;">
+                                <div class="wrap-input100 validate-input">
+                                    @Html.DropDownListFor(uye => uye.Adres.IL_ID, ViewBag.Iller as SelectList, "İL SEÇİNİZ", new { @class = "form-control", @value = "1" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                            <td style="padding-left:5px;">
+                                <div class="wrap-input100 validate-input">
+                                    <select id="ilceler" class="form-control"></select>
+                                    @*@Html.DropDownListFor(uye => uye.Adres.ILCE_ID, ViewBag.Ilceler as SelectList, "İLÇE SEÇİNİZ", new { @class = "form-control" })*@
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td style="padding-right:5px;">
+                                <div class="wrap-input100 validate-input">
+                                    @Html.TextBoxFor(uye => uye.BireyselUye.EMAIL, new { placeholder = "EMAİL", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                            <td style="padding-left:5px;">
+                                <div class="wrap-input100 validate-input">
+                                    @Html.TextBoxFor(uye => uye.BireyselUye.ADRES, new { placeholder = "ADRES", @class = "input100" })
+                                    <span class="focus-input100"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="container-login100-form-btn">
+                        <input class="login100-form-btn" type="submit" value="KAYDET" />
+                    </div>
+
+                    <div class="text-center p-t-90">
+                        <a class="txt1" href="#">
+                            @ViewData["result"]
+                        </a>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <input class="login100-form-btn" type="submit" value="Anasayfa" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!--===============================================================================================-->
+    <script src="~/login_css/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript">
+        var globalData;
+       
+        function SetCityAreaList() {
+            var cityId = $('#Adres_IL_ID').val();
+            $("#ilceler").empty();
+            console.log("cityId:" + cityId);
+            $.post("GetCityAreas", {
+                cityId: "" + cityId
+            }, function (data, status) {
+                console.log("cityId:" + cityId);
+                console.log(data);
+                globalData = JSON.parse(data);
+                for (i = 0; i < globalData[0].IL.ILCE.length; i++) {
+                    var k = globalData[0].IL.ILCE[i];
+                    $("#ilceler").append('<option>' + k.ADI + '</option>');
+                }
+                //console.log(data);
+            });
+        }
+        $(document).ready(function () {
+            $('#Adres_IL_ID').change(function () {
+                if ($('#Adres_IL_ID').val() == 1) {
+                    $("#ilceler").empty();
+                    $("#ilceler").append('<option>' + 'Aladağ' + '</option>');
+                    $("#ilceler").append('<option>' + 'Ceyhan' + '</option>');
+                    $("#ilceler").append('<option>' + 'Çukurova' + '</option>');
+                    $("#ilceler").append('<option>' + 'Feke' + '</option>');
+                    $("#ilceler").append('<option>' + 'İmamoğlu' + '</option>');
+                    $("#ilceler").append('<option>' + 'Karaisalı' + '</option>');
+                    $("#ilceler").append('<option>' + 'Karataş' + '</option>');
+                    $("#ilceler").append('<option>' + 'Kozan' + '</option>');
+                    $("#ilceler").append('<option>' + 'Pozantı' + '</option>');
+                    $("#ilceler").append('<option>' + 'Saimbeyli' + '</option>');
+                    $("#ilceler").append('<option>' + 'Sarıçam' + '</option>');
+                    $("#ilceler").append('<option>' + 'Tufanbeyli' + '</option>');
+                    $("#ilceler").append('<option>' + 'Yumurtalık' + '</option>');
+                    $("#ilceler").append('<option>' + 'Yüreğir' + '</option>');
+                    ;}
+                else {
+                    SetCityAreaList();
+                }
+            });
+            SetCityAreaList();
+        });
+    </script>
+
+
+    <script src="~/login_css/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login_css/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/login_css/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login_css/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login_css/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/login_css/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login_css/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login_css/js/main.js"></script>
+</body>
+</html>
