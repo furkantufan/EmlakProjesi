@@ -13,5 +13,5 @@
 https://github.com/creativetimofficial/material-kit
 
 
-## Ara yüze ait görseller
+## Uygulama Görselleri
 
