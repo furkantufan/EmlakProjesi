@@ -1,5 +1,8 @@
 # EmlakProjesi
-* Bu projede MVC ve Entity Framework kullanılmıştır.
+* Bu projede C# programlama dili kulanılarak programlanmıştır.
+* MVC ve Entity Framework kullanılmıştır.
+* Mssql database kullanılmıştır.
+* Veri tabanına kök klasördeki veri tabanı dosyasından ulaşabilirsiniz.
 
 ## Emlak Otomasyonu projesinde genel olarak
 * Giriş Ekranı 
@@ -18,14 +21,6 @@ https://github.com/creativetimofficial/material-kit
 * Anasayfa Ekranı
 
 ![Anasayfa](https://user-images.githubusercontent.com/33198774/62043180-6544c900-b208-11e9-8ca6-21c1995e276e.png)
-
-* Login Ekranı
-
-![Login](https://user-images.githubusercontent.com/33198774/62043283-a341ed00-b208-11e9-98a0-816dcc08d0b0.png)
-
-* Uye Kayıt Ekranı
-
-![logincreateee](https://user-images.githubusercontent.com/33198774/62043334-c10f5200-b208-11e9-8540-b745005a673d.png)
 
 * Ilan ver Ekranı
 
