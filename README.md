@@ -22,6 +22,6 @@ https://github.com/creativetimofficial/material-kit
 
 ![Anasayfa](https://user-images.githubusercontent.com/33198774/62043180-6544c900-b208-11e9-8ca6-21c1995e276e.png)
 
-#### Ilan ver Ekranı
+#### İlan verme Ekranı
 
 ![IlanVer](https://user-images.githubusercontent.com/33198774/62043400-eac87900-b208-11e9-8dd5-478c1b75d1aa.png)
