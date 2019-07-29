@@ -15,3 +15,6 @@ https://github.com/creativetimofficial/material-kit
 
 ## Uygulama Görselleri
 
+* Anasayfa Ekranı
+![Anasayfa](https://user-images.githubusercontent.com/33198774/62043180-6544c900-b208-11e9-8ca6-21c1995e276e.png)
+
